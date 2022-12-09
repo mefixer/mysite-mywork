@@ -3,15 +3,13 @@
 ## Qué es MySite-MyWork?
 
 Es un sistema web auto-administrable basado en: Codeigniter PHP full-stack web framework.
-para más información de codeigniter ingresa al [sitio oficial](http://codeigniter.com).
 
-Este repositorio contiene un iniciador de aplicaciones instalable por el compositor. Ha sido construido a partir del
-[repositorio desarrollado](https://github.com/codeigniter4/CodeIgniter4).
 
+Este repositorio contiene un iniciador de aplicaciones instalable mediante composer. Ha sido construido a partir del
+[repositorio](https://github.com/codeigniter4/CodeIgniter4). Para más información de Codeigniter ingresa al [sitio oficial](http://codeigniter.com).
 Puede encontrar más información sobre los planes para la versión 4 en [los anuncios](http://forum.codeigniter.com/thread-62615.html) del foro.
 
-La guía del usuario correspondiente a esta versión del framework se puede encontrar
-[aquí](https://codeigniter4.github.io/userguide/).
+La guía de usuario correspondiente a esta versión del framework se puede encontrar [aquí](https://codeigniter4.github.io/userguide/).
 
 ## Si desea adquirir el proyecto y necesita ayuda para la instalación o desea contratar la personalización
 
