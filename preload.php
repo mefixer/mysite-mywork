@@ -97,7 +97,7 @@ class preload
 
             foreach ($phpFiles as $key => $file) {
                 foreach ($path['exclude'] as $exclude) {
-                    if (str_contains($file[0], $exclude)) {
+                    if (strpos($file[0], $exclude)) {
                         continue 2;
                     }
                 }

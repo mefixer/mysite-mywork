@@ -1,0 +1,194 @@
+  /* Global */
+  @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond%3A300%2C400%2C400i%2C500%2C500i%2C600%2C700%7CEB+Garamond%3A300%2C400%2C400i%2C500%2C500i%2C600%2C700%7CSpectral%3A300%2C400%2C400i%2C500%2C500i%2C600%2C700%7CArimo%3A300%2C400%2C400i%2C500%2C500i%2C600%2C700&amp;subset=latin-ext&amp;display=swap&amp;ver=1.0.0');
+
+  body {
+      font-family: "Cormorant Garamond", sans-serif;
+      background-color: #faf8f5;
+  }
+
+  #slideportada,
+  .carousel-inner,
+  .carousel-portada,
+  .carousel-item.active {
+      height: 100vh;
+  }
+
+  .insta {
+      padding-left: 35%;
+  }
+
+  /* Añade ajustes a los estilos de bootstrap */
+  .text-nav {
+      color: white;
+      cursor: pointer;
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  .text-nav-scroll {
+      color: black;
+      cursor: pointer;
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  .text-nav:hover {
+      color: #732002;
+      cursor: pointer;
+      text-decoration: none;
+  }
+
+  .text-nav-catalogo {
+      color: black;
+      cursor: pointer;
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  .text-nav-catalogo:hover {
+      color: #732002;
+      cursor: pointer;
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  .text-nav-scroll:hover {
+      color: #732002;
+      cursor: pointer;
+      font-size: 24px;
+      text-decoration: none;
+  }
+
+  /* .carousel-caption {
+      object-fit: cover;
+      position: relative;
+      padding-top: 36%;
+      padding-right: 70%;
+  }
+
+  .carousel-caption h1 {
+      font-size: 46px;
+  }
+
+  .carousel-caption p {
+      font-size: 24px;
+  } */
+
+  /* galeria */
+  .img-galeria {
+      object-fit: cover;
+      align-items: center;
+      object-fit: cover;
+      width: 100%;
+      height: 60vh;
+      border-radius: 40% 80% 80% 40% / 40% 40% 80% 80%;
+  }
+
+  .btn-tienda {
+      background-color: #D97D48 !important;
+      color: white !important;
+      width: 10rem !important;
+      height: auto !important;
+  }
+
+  .btn-tienda:hover {
+      background-color: #F786C7 !important;
+      color: white !important;
+      width: 10rem !important;
+      height: auto !important;
+  }
+
+
+  .agregar-carrito {
+      font-size: 16px;
+      line-height: 1.91em;
+      cursor: pointer;
+      color: #D97D48;
+  }
+
+  .agregar-carrito:hover {
+      font-size: 16px;
+      line-height: 1.91em;
+      cursor: pointer;
+      color: #F786C7;
+  }
+
+  .imgProd {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+  }
+
+  /* 
+  .imgProdcart {
+      object-fit: cover;
+      width: 40%;
+      height: auto;
+      margin: 1px;
+      padding: 1px;
+  }
+
+  .entrycart {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      width: 270px;
+      height: auto;
+      padding: 15px;
+  } */
+
+  .img-medio {
+      object-fit: cover;
+      width: 100%;
+      height: 60vh;
+  }
+
+  /* Footer */
+  .img-footer {
+      width: 20rem;
+  }
+
+  .card-footer-left label {
+      color: white;
+      font-weight: bolder;
+  }
+
+  .card-footer-center label {
+      color: white;
+      font-weight: bolder;
+  }
+
+  .card-footer-right label {
+      color: white;
+      font-weight: bolder;
+  }
+
+  .footer h2 {
+      color: white;
+      font-size: 25px;
+      font-weight: bolder;
+  }
+
+  .footer p {
+      color: white;
+      font-size: 16px;
+  }
+
+  .footer {
+      padding-top: 30px;
+      background-color: #732002;
+  }
+
+  .baja {
+      padding-top: 10vh;
+      object-fit: cover;
+  }
+
+  .informacion {
+      background-color: #f7d6e6;
+  }
+
+  .pedido {
+      background-color: #cfe2ff;
+  }

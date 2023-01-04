@@ -199,7 +199,7 @@
                         </tr>
                         <tr>
                             <td>HTTP Method</td>
-                            <td><?= esc(strtoupper($request->getMethod())) ?></td>
+                            <td><?= esc(strtoupper($_SERVER["REQUEST_METHOD"])) ?></td>
                         </tr>
                         <tr>
                             <td>IP Address</td>
