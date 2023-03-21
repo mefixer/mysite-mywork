@@ -25,13 +25,19 @@ class Categorias extends BaseController
 
     public function index($activo = 1)
     {
-        $categorias = $this->categorias->where('activo', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
 
-        $data = ['titulo' => 'Lista de categorias', 'datos' => $categorias];
+            $categorias = $this->categorias->where('activo', $activo)->findAll();
 
-        echo view('header');
-        echo view('categorias/categorias', $data);
-        echo view('footer');
+            $data = ['titulo' => 'Lista de categorias', 'datos' => $categorias];
+
+            echo view('header');
+            echo view('categorias/categorias', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {

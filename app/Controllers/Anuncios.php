@@ -21,13 +21,18 @@ class Anuncios extends BaseController
 
     public function index($activo = 1)
     {
-        $anuncios = $this->anuncios->where('activo', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            $anuncios = $this->anuncios->where('activo', $activo)->findAll();
 
-        $data = ['titulo' => 'Lista de anuncios', 'datos' => $anuncios];
+            $data = ['titulo' => 'Lista de anuncios', 'datos' => $anuncios];
 
-        echo view('header');
-        echo view('anuncios/anuncios', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('anuncios/anuncios', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {
@@ -70,7 +75,6 @@ class Anuncios extends BaseController
             echo view('anuncios/nuevo', $data);
             echo view('footer');
         }
-
     }
     public function editar($id, $valid = NULL)
     {

@@ -81,13 +81,18 @@ class Productos extends BaseController
     }
     public function index($activo = 1)
     {
-        $productos = $this->productos->where('activo', $activo)->findAll();
-        $imagenes = $this->imagenes->where('activo', $activo)->findAll();
-        $data = ['titulo' => 'Lista de productos', 'productos' => $productos, 'imagenes' => $imagenes];
 
-        echo view('header');
-        echo view('productos/productos', $data);
-        echo view('footer');
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            return redirect()->to('/login');
+        } else {
+            $productos = $this->productos->where('activo', $activo)->findAll();
+            $imagenes = $this->imagenes->where('activo', $activo)->findAll();
+            $data = ['titulo' => 'Lista de productos', 'productos' => $productos, 'imagenes' => $imagenes];
+            echo view('header');
+            echo view('productos/productos', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {

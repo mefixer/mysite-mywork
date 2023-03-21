@@ -25,6 +25,7 @@ class ProductosModel extends Model
         'id_unidad',
         'id_categoria',
         'img',
+        'destacado',
         'activo'
     ];
 

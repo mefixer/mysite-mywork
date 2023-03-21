@@ -92,6 +92,7 @@
                     </div>
                 </div>
                 <?php $count += 1; ?>
+                
             <?php } ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#slideproducto" data-bs-slide="prev" style="padding-bottom: 20vh;">
@@ -108,7 +109,7 @@
     <div class="row d-flex justify-content-around align-items-center w3-container w3-center w3-animate-left">
         <?php foreach ($anuncios as $dato) { ?>
             <div class="col-4">
-                <img class="img-medio img-galeria w3-container w3-center w3-animate-left" src="<?php echo base_url() . '/img/anuncios/' . $dato['img']; ?>" alt="...">
+                <img class="img-medio w3-container w3-center w3-animate-left" src="<?php echo base_url() . '/img/anuncios/' . $dato['img']; ?>" alt="...">
             </div>
         <?php } ?>
         <div class="col-4 w3-container w3-center w3-animate-right">
@@ -133,9 +134,9 @@
         <div class="carousel-inner">
             <?php $count = 0; ?>
             <?php foreach ($posteos as $dato) { ?>
-                <div class="carousel-item insta <?php if ($count == 0) { ?>
+                <div class="carousel-item insta  <?php if ($count == 0) { ?>
                                                        <?php echo 'active'; ?>
-                                                     <?php   }; ?> w3-animate-top">
+                                                     <?php   }; ?> w3-animate-top" style="width: 100%; height: 1rem;">
                         <?php echo $dato['url']; ?>
                 </div>
                 <?php $count += 1; ?>

@@ -62,16 +62,26 @@
                     <?php foreach ($productos as $producto) { ?>
                         <div class="col-4">
                             <div class="row">
+                                <!-- <a href="<?php echo base_url() . '/tienda/producto/' . $producto['id'] ?>">x</a> -->
                                 <div class="col">
-                                    <a href="<?php echo base_url() . '/tienda/producto/' . $producto['id'] ?>">
-                                        <div class="producto-tarjeta">
-                                            <img src="<?php echo base_url() . '/img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
-                                        </div>
+
+                                    <div class="producto-tarjeta">
+                                        <img src="<?php echo base_url() . '/img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
+                                    </div>
                                     </a>
                                     <div class="row">
-                                        <div class="col" style="text-align: center;">
-                                            <br>
-                                            <label><strong style="font-size: 20px;"><?php echo $producto['nombre']; ?></strong></label>
+
+                                        <div class="col-10" style="text-align: center;">
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <a href="<?php echo base_url() . '/tienda/quitar/' . $producto['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar del carrito" class="btn"><i class="fas fa-trash-alt"></i>
+                                    </a>
+                                                </div>
+                                                <div class="col">
+                                                    <label><strong style="font-size: 20px;"><?php echo $producto['nombre']; ?></strong></label>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -86,7 +96,7 @@
             </div>
             <div class="col-5">
                 <div class="row">
-                <h2><?php echo $titulo ?></h2><br>
+                    <h2><?php echo $titulo ?></h2><br>
                     <div class="row">
                         <br>
                         <div class="col" style="font-size: 24px;"><strong>Subtotal:</strong> <label>$ <?php echo $total; ?></label></div>
@@ -102,6 +112,23 @@
                             <a href="<?php echo base_url(); ?>/tienda/realizar" class="btn btn-pedido"> Realizar pedido</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-confirma" tabindex=" -1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eliminar Producto</h5>
+                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Está seguro de eliminiar éste productos?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No eliminar</button>
+                    <a class="btn btn-success btn-ok">Si eliminar</a>
                 </div>
             </div>
         </div>

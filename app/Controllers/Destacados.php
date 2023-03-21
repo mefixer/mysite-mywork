@@ -12,18 +12,22 @@ class Destacados extends BaseController
     public function __construct()
     {
         $this->productos = new ProductosModel();
-
     }
 
     public function index($activo = 1)
     {
-        $productos = $this->productos->where('destacado', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            $productos = $this->productos->where('activo', $activo)->findAll();
 
-        $data = ['titulo' => 'Lista de destacados', 'productos' => $productos];
+            $data = ['titulo' => 'Lista de productos activos', 'productos' => $productos];
 
-        echo view('header');
-        echo view('destacados/destacados', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('destacados/destacados', $data);
+            echo view('footer');
+        }
     }
     public function nuevo()
     {
@@ -40,5 +44,19 @@ class Destacados extends BaseController
         $this->productos->update($id, ['destacado' => 0]);
         return redirect()->to(base_url() . '/destacados');
     }
+    public function destacar()
+    {
+        $id = $this->request->getPost('id');
+        $producto = $this->productos->where('id', $id)->first();
+        if ($producto['destacado'] == 1) {
+            $this->productos->update($id, ['destacado' => 0]);
+        } else {
+            $this->productos->update($id, ['destacado' => 1]);
+        }
 
+
+        $estado = $id;
+        $json = json_encode($estado);
+        return $json;
+    }
 }

@@ -77,13 +77,18 @@ class Usuarios extends BaseController
 
     public function index($activo = 1)
     {
-        $usuarios = $this->usuarios->where('activo', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            $usuarios = $this->usuarios->where('activo', $activo)->findAll();
 
-        $data = ['titulo' => 'Lista de usuarios', 'datos' => $usuarios];
+            $data = ['titulo' => 'Lista de usuarios', 'datos' => $usuarios];
 
-        echo view('header');
-        echo view('usuarios/usuarios', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('usuarios/usuarios', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {
@@ -183,13 +188,14 @@ class Usuarios extends BaseController
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $this->validate($this->reglasLog)) {
 
-
+            print_r('ingresa');
             $usuario = $this->request->getPost('nombre_usuario');
             $password = $this->request->getPost('password');
 
 
             $datosUsuario = $this->usuarios->where('nombre_usuario', $usuario)->first();
 
+            print_r($datosUsuario);
             if ($datosUsuario != NULL) {
                 if (password_verify($password, $datosUsuario['password'])) {
                     $datosSesion = [
@@ -202,7 +208,9 @@ class Usuarios extends BaseController
 
                     $session = session();
                     $session->set($datosSesion);
-                    return redirect()->to(base_url() . '/productos/');
+                    echo view('header');
+                    echo view('body');
+                    echo view('footer');
                 } else {
                     $data['error'] = "La contraseña no es correcta";
                     echo view('login', $data);
@@ -212,6 +220,7 @@ class Usuarios extends BaseController
                 echo view('login', $data);
             }
         } else {
+            print_r('pasa por aqui');
             $data = ['validation' => $this->validator];
             echo view('login', $data);
         }

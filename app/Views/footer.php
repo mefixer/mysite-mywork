@@ -5,7 +5,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Abrazate 2022</span>
+            <span>Copyright &copy; Abrazate <?php echo date("Y");?></span>
         </div>
     </div>
 </footer>
@@ -40,6 +40,7 @@
 
 <!-- Page level custom scripts -->
 <script src="<?php echo base_url(); ?>/js/demo/datatables-demo.js"></script>
+
 
 <script>
     $('#modal-confirma').on('show.bs.modal', function(e){

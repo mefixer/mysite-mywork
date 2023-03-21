@@ -58,30 +58,26 @@
     <div class="container" style="padding-top: 10vh; padding-bottom: 10vh; font-family: Cormorant Garamond, sans-serif !important;  font-size: larger !important; ">
         <div class="row">
             <?php foreach ($productos as $producto) { ?>
-                <div class="col">
+                <div class="col-3">
+                    <a href="<?php echo base_url() . '/tienda/producto/' . $producto['id'] ?>">
+                        <div class="producto-tarjeta">
+                            <img src="<?php echo base_url() . '/img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
+                        </div>
+                    </a>
                     <div class="row">
-                        <div class="col-12">
-                            <a href="<?php echo base_url() . '/tienda/producto/' . $producto['id'] ?>">
-                                <div class="producto-tarjeta">
-                                    <img src="<?php echo base_url() . '/img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
-                                </div>
-                            </a>
-                            <div class="row">
-                                <div class="col-6">
-                                    <br>
-                                    <label><strong style="font-size: 24px;"><?php echo $producto['nombre']; ?></strong></label>
-                                </div>
-                                <div class="col-6" style="text-align: right;">
-                                    <br>
-                                    <a href="<?php echo base_url() . '/tienda/insertar/' . $producto['id']; ?>" type="button" class="btn btn-tienda">Agregar al pedido</a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col"><label>$ <?php echo $producto['precio_venta']; ?></label></div>
-                            </div>
-                            <div></div>
+                        <div class="col-5">
+                            <br>
+                            <label><strong style="font-size: 18px;"><?php echo $producto['nombre']; ?></strong></label>
+                        </div>
+                        <div class="col-4" style="text-align: right;">
+                            <br>
+                            <a href="<?php echo base_url() . '/tienda/insertar/' . $producto['id']; ?>" type="button" class="btn btn-tienda" style="font-size: 16px;">Agregar</a>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col"><label style="font-size: 18px;">$ <?php echo $producto['precio_venta']; ?></label></div>
+                    </div>
+                    <div></div>
                 </div>
             <?php }; ?>
         </div>
@@ -110,17 +106,25 @@
             object-fit: cover;
             align-items: center;
             width: 100%;
-            height: 40rem;
-            border-radius: 3px;
+            height: 25rem;
+            border-radius: 5px;
+        }
+        .imagen-producto:hover{
+            object-fit: cover;
+            align-items: center;
+            width: 100%;
+            height: 25rem;
+            border-radius: 5px;
+            box-shadow: 1px 1px 2px 1px black;
         }
 
         .btn-tienda {
             background-color: #D97D48;
             color: white;
-            width: 10rem;
+            width: 100%;
             height: auto;
-            padding: 3px;
-            padding-right: 5px;
+            padding: 2px;
+            padding-right: 3px;
         }
 
         .btn-tienda:hover {

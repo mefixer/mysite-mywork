@@ -16,7 +16,8 @@
  * See https://www.php.net/manual/en/opcache.preloading.php
  *
  * How to Use:
- *   1. Set preload::$paths.
+ *   0. Copy this file to your project root folder.
+ *   1. Set the $paths property of the preload class below.
  *   2. Set opcache.preload in php.ini.
  *     php.ini:
  *     opcache.preload=/path/to/preload.php
@@ -97,7 +98,7 @@ class preload
 
             foreach ($phpFiles as $key => $file) {
                 foreach ($path['exclude'] as $exclude) {
-                    if (strpos($file[0], $exclude)) {
+                    if (str_contains($file[0], $exclude)) {
                         continue 2;
                     }
                 }

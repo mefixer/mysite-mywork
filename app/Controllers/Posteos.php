@@ -21,13 +21,18 @@ class Posteos extends BaseController
 
     public function index($activo = 1)
     {
-        $posteos = $this->posteos->where('activo', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            $posteos = $this->posteos->where('activo', $activo)->findAll();
 
-        $data = ['titulo' => 'Lista de posteos', 'datos' => $posteos];
+            $data = ['titulo' => 'Lista de posteos', 'datos' => $posteos];
 
-        echo view('header');
-        echo view('posteos/posteos', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('posteos/posteos', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {
@@ -52,8 +57,7 @@ class Posteos extends BaseController
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $this->validate($this->reglas)) {
             $this->posteos->save([
-                'nombre' => $this->request->getPost('nombre'),
-                'nombre_corto' => $this->request->getPost('nombre_corto')
+                'url' => $this->request->getPost('url')
             ]);
             return redirect()->to(base_url() . '/posteos');
         } else {

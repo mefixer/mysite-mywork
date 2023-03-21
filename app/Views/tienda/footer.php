@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<div class="text-center my-auto" style="padding-top: 30%;">
+				<div class="text-center my-auto" style="padding-top: 20%;">
 					<h2>Contactanos</h2>
 					<p><strong>Correo: </strong> abrazate.tiendachile@gmail.com</p>
 					<p><strong>Direccion: </strong> Santiago</p>
@@ -11,16 +11,16 @@
 			</div>
 			<div class="col-6">
 				<div class="text-center my-auto">
-					<img src="<?php echo base_url(); ?>/img/logo-white.png" style="width:60%;">
+					<img src="<?php echo base_url(); ?>/img/logo-white.png" style="width:40%;">
 					<div class="text-center my-auto">
-						<button class="btn" href="https://www.instagram.com/abrazate_tienda"><img src="<?php echo base_url(); ?>/img/instagram.png" style="width: 30px;"></button>
-						<button class="btn" href="https://web.facebook.com/abrazate_tienda"><img src="<?php echo base_url(); ?>/img/facebook.png" style="width: 30px;"></button>
-						<button class="btn" href="https://wa.link/s1xwso"><img src="<?php echo base_url(); ?>/img/whatsapp.png" style="width: 30px;"></button>
+						<a class="btn" href="https://www.instagram.com/abrazate_tienda" type="button"><img src="<?php echo base_url(); ?>/img/instagram.png" style="width: 30px;"></a>
+						<a class="btn" href="https://web.facebook.com/abrazate_tienda" type="button"><img src="<?php echo base_url(); ?>/img/facebook.png" style="width: 30px;"></a>
+						<a class="btn" href="https://wa.link/s1xwso" type="button"><img src="<?php echo base_url(); ?>/img/whatsapp.png" style="width: 30px;"></a>
 					</div>
 				</div>
 			</div>
 			<div class="col">
-				<div class="text-center my-auto" style="padding-top: 30%;">
+				<div class="text-center my-auto" style="padding-top: 20%;">
 					<h2>Horario Atención</h2>
 					<p>Lunes/Viernes 9:00-17:30</p>
 				</div>
@@ -38,7 +38,7 @@
 <footer class="sticky-footer">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright &copy; Abrazate 2022</span>
+			<span>Copyright &copy; Abrazate <?php echo date("Y");?></span>
 		</div>
 	</div>
 </footer>

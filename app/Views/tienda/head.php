@@ -56,15 +56,15 @@
             <div class="collapse navbar-collapse d-flex justify-content-around align-items-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="tienda" class="text-nav" aria-current="page" href="<?php echo base_url(); ?>/tienda/lista"><strong>Tienda</strong></a>
+                        <a id="tienda" class="text-nav" aria-current="page" href="<?php echo base_url(); ?>tienda/lista"><strong>Tienda</strong></a>
                     </li>
                 </ul>
-                <a class="navbar-brand" href="<?php echo base_url(); ?>/tienda">
+                <a class="navbar-brand" href="<?php echo base_url(); ?>tienda">
                     <div id="logo" class="imglogowhite"></div>
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="carro" class="text-nav" aria-current="page" href="<?php echo base_url(); ?>/tienda/ver"><i class="fas fa-shopping-cart"></i><strong><?php echo $items?></strong></a>
+                        <a id="carro" class="text-nav" aria-current="page" href="<?php echo base_url(); ?>tienda/ver"><i class="fas fa-shopping-cart"></i><strong><?php echo $items?></strong></a>
                     </li>
                 </ul>
             </div>

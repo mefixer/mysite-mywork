@@ -29,13 +29,32 @@
                             <tr>
 
                                 <td><?php echo $dato['nombre']; ?></td>
-                                <td><img src="<?php echo base_url() . '/img/productos/' . $dato['img']; ?>" alt="" style="width: 30%; height: 30%;"></td>
+                                <td><img src="<?php echo base_url() . '/img/productos/' . $dato['img']; ?>" alt="" style="width: 12%; height: 12%;"></td>
                                 <td>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" <?php if ($dato['destacado'] == 1) {; ?> <?php echo 'checked'; ?> <?php }; ?>>
+                                        <input class="form-check-input" type="checkbox" onchange="insert()" role="switch" id="flexSwitchCheckChecked" name="flexSwitchCheckChecked" value="<?php echo $dato['id'] ?>" <?php if ($dato['destacado'] == 1) {; ?> <?php echo 'checked'; ?> <?php }; ?>>
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Destacado</label>
-                                        <a href="<?php echo base_url(); ?>/destacados/insertar" hidden></a>
                                     </div>
+                                    <script>
+                                        function insert() {
+                                            var id = document.getElementById('flexSwitchCheckChecked');
+                                            $.ajax({
+                                                url: '<?php echo base_url(); ?>/destacados/insertar',
+                                                type: 'POST',
+                                                data: {
+                                                    id: id.value
+                                                },
+                                                success: function(response) {
+                                                    try {
+                                                        var responseArray = JSON.parse(response);
+                                                        console.log(responseArray);
+                                                    } catch (e) {
+                                                        console.log(e);
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    </script>
                                 </td>
                             </tr>
                         <?php } ?>

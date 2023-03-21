@@ -30,13 +30,20 @@ class Portadas extends BaseController
 
     public function index()
     {
-        $portadas = $this->portadas->where('activo', 1)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+            
+        } else {
+            $portadas = $this->portadas->findAll();
 
-        $data = ['titulo' => 'Lista de portadas', 'portadas' => $portadas];
+            $data = ['titulo' => 'Lista de portadas', 'portadas' => $portadas];
 
-        echo view('header');
-        echo view('portadas/portadas', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('portadas/portadas', $data);
+            echo view('footer');
+            
+        }
     }
 
     public function nuevo()
@@ -126,7 +133,23 @@ class Portadas extends BaseController
             return redirect()->to(base_url() . '/portadas');
         }
     }
-    public function eliminados(){
+    public function activar()
+    {
+        $id = $this->request->getPost('id');
+        $portada = $this->portadas->where('id', $id)->first();
+
+        if ($portada['activo'] == 1) {
+            $this->portadas->update($id, ['activo' => 0]);
+        } else {
+            $this->portadas->update($id, ['activo' => 1]);
+        }
+
+        $estado = $id;
+        $json = json_encode($estado);
+        return $json;
+    }
+    public function eliminados()
+    {
         $portadas = $this->portadas->where('activo', 0)->findAll();
 
         $datos = ['titulo' => 'Lista de portadas eliminadas', 'portadas' => $portadas];

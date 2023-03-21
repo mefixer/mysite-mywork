@@ -6,38 +6,35 @@
         <div class="card-body">
             <!-- Page Heading -->
             <h3 class="mt-4"><strong><?php echo $titulo; ?></strong></h3>
-            <p>
-                <a href="<?php echo base_url(); ?>/destacados/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar destacado</a>
-            </p>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Nombre</th>
                             <th>Imagen</th>
-                            <th>Eliminar</th>
+                            <th>Destacado</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>Nombre</th>
                             <th>Imagen</th>
-                            <th>Eliminar</th>
+                            <th>Destacado</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         <?php foreach ($productos as $dato) { ?>
 
-                            <?php if ($dato['destacado'] == 1) {; ?>
-                                <tr>
-                                    <td><?php echo $dato['nombre']; ?></td>
-                                    <td><img src="<?php echo base_url() . '/img/productos/' . $dato['img']; ?>" alt="" style="width: 30%; height: 30%;"></td>
-                                    <td>
-                                        <a href="#" data-href="<?php echo base_url() . '/destacados/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php }; ?>
+                            <tr>
+                                <td><?php echo $dato['nombre']; ?></td>
+                                <td><img src="<?php echo base_url() . '/img/productos/' . $dato['img']; ?>" alt="" style="width: 12%; height: 12%;"></td>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" onchange="destacar(this)" value="<?php echo $dato['id']; ?>" id="checkdestacado<?php echo $dato['id']; ?>" name="checkdestacado<?php echo $dato['id']; ?>" <?php if ($dato['destacado'] == 1) {; ?> <?php echo 'checked'; ?> <?php } else { ?> <?php echo ''; ?> <?php }; ?>>
+                                        <label class="form-check-label" for="checkdestacado<?php echo $dato['id']; ?>"></label>
+                                    </div>
+                                </td>
+                            </tr>
 
 
                         <?php } ?>
@@ -48,7 +45,25 @@
     </div>
 </div>
 <!-- /.container-fluid -->
-
+<script>
+    function destacar(id) {
+        $.ajax({
+            url: '<?php echo base_url(); ?>/destacados/destacar',
+            type: 'POST',
+            data: {
+                id: id.value
+            },
+            success: function(response) {
+                try {
+                    var responseArray = JSON.parse(response);
+                    console.log(responseArray);
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        });
+    }
+</script>
 <div class="modal fade" id="modal-confirma" tabindex=" -1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

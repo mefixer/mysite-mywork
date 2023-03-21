@@ -22,13 +22,19 @@ class Unidades extends BaseController
 
     public function index($activo = 1)
     {
-        $unidades = $this->unidades->where('activo', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            
+            $unidades = $this->unidades->where('activo', $activo)->findAll();
 
-        $data = ['titulo' => 'Lista de unidades', 'datos' => $unidades];
+            $data = ['titulo' => 'Lista de unidades', 'datos' => $unidades];
 
-        echo view('header');
-        echo view('unidades/unidades', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('unidades/unidades', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {

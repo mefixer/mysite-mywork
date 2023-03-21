@@ -1,43 +1,4 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
 
-        </div>
-        <div class="col">
-            <h2 style="text-transform: uppercase;"><strong>Vista Previa</strong></h2>
-        </div>
-        <div class="col">
-
-        </div>
-    </div>
-</div>
-<div class="container"><br>
-<?php $count = 0?>
-    <?php foreach ($datos as $dato) {
-        if($count == 1){
-            break;
-        }
-        $count += 1 ;
-        ?>
-        <div class="row d-flex justify-content-around align-items-center">
-            <div class="col g-col-6  w3-container w3-center">
-                <img class="img-galeria  w3-center w3-animate-left" src="<?php echo base_url() . '/img/post/' . $dato['img']; ?>">
-            </div>
-            <div class="col g-col-6  w3-container w3-container w3-center w3-animate-right">
-                <br>
-                <br>
-                <p style="font-size: 44px;"><?php echo $dato['titulo']; ?></p>
-                <p style="font-size: 24px;"><?php echo $dato['descripcion']; ?></p>
-                <br>
-                <a style="font-size: 24px;" class="btn btn-tienda" onclick="catalogo()">Tienda</a>
-            </div>
-        </div>
-
-    <?php  
-    }
-    ?>
-    <br>
-</div>
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->

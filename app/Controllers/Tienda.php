@@ -13,6 +13,7 @@ use App\Models\PosteosModel;
 use App\Models\RegionesModel;
 use App\Models\CiudadesModel;
 use App\Models\PedidosModel;
+use App\Models\EstadoPedidosModel;
 use App\Models\Detalle_PedidoModel;
 use App\Models\EnviosModel;
 use App\Libraries\Cart;
@@ -34,6 +35,7 @@ class Tienda extends BaseController
     protected $detalle_pedido;
     protected $cart;
     protected $reglas;
+    protected $estado_pedido;
 
     public function __construct()
     {
@@ -50,6 +52,7 @@ class Tienda extends BaseController
         $this->pedidos = new PedidosModel();
         $this->detalle_pedido = new Detalle_PedidoModel();
         $this->cart = new Cart;
+        $this->estado_pedido = new EstadoPedidosModel();
 
         helper(['form']);
 
@@ -115,7 +118,7 @@ class Tienda extends BaseController
     {
         $portadas = $this->portadas->where('activo', $activo)->findAll();
         $post = $this->post->where('activo', $activo)->findAll();
-        $productos = $this->productos->where('activo', $activo)->findAll();
+        $productos = $this->productos->where('destacado', $activo)->findAll();
         $anuncios = $this->anuncios->where('activo', $activo)->findAll();
         $posteos = $this->posteos->where('activo', $activo)->findAll();
         $items = $this->cart->total_items();
@@ -190,6 +193,40 @@ class Tienda extends BaseController
         foreach ($contenido as $content) :
             $producto = $this->productos->where('id', $content['id'])->first();
             array_push($producto, $content['qty']);
+            array_push($producto, $content['rowid']);
+            $total += $content['subtotal'];
+            array_push($productos, $producto);
+        endforeach;
+
+        $items = $this->cart->total_items();
+        $data = [
+            'titulo' => 'Productos que tienes seleccionados!',
+            'productos' => $productos,
+            'items' => $items,
+            'total' => $total
+        ];
+
+        echo view('tienda/productos/pedido', $data);
+        echo view('tienda/footer');
+
+    }
+    public function quitar($id)
+    {
+        $productos = array();
+        $cart_content = $this->cart->contents();
+        
+        foreach ($cart_content as $content) :
+            if ($content['id'] == $id) {
+                $this->cart->remove($content['rowid']);
+            }
+        endforeach;
+
+        $productos = array();
+        $contenido = $this->cart->contents();
+        $total = 0;
+        foreach ($contenido as $content) :
+            $producto = $this->productos->where('id', $content['id'])->first();
+            array_push($producto, $content['qty']);
             $total += $content['subtotal'];
             array_push($productos, $producto);
         endforeach;
@@ -204,9 +241,6 @@ class Tienda extends BaseController
         echo view('tienda/productos/pedido', $data);
         echo view('tienda/footer');
     }
-    public function quitar($id)
-    {
-    }
     public function realizar()
     {
         if ($this->cart->contents() == null) {
@@ -217,6 +251,7 @@ class Tienda extends BaseController
             foreach ($contenido as $content) :
                 $producto = $this->productos->where('id', $content['id'])->first();
                 array_push($producto, $content['qty']);
+                array_push($producto, $content['rowid']);
                 $total += $content['subtotal'];
                 array_push($productos, $producto);
             endforeach;
@@ -259,6 +294,8 @@ class Tienda extends BaseController
     }
     public function continuar()
     {
+        //se extrae los datos enviados desde el formulario 
+        //consultando primero por el tipo de peticion y validado los datos
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $this->validate($this->reglas)) {
             $nombre = $this->request->getPost('nombre_cliente');
             $apellidos = $this->request->getPost('apellidos_cliente');
@@ -271,8 +308,6 @@ class Tienda extends BaseController
             $telefono = $this->request->getPost('telefono_cliente');
 
             $cliente = $this->clientes->where('rut', $rut)->first();
-
-
 
             if ($cliente == NULL) {
 
@@ -290,10 +325,20 @@ class Tienda extends BaseController
 
                 $clienteId = $this->clientes->getInsertID();
                 $cliente = $this->clientes->where('id', $clienteId)->first();
+            }else{
+                $id_cliente = $cliente['id'];
+                $this->clientes->update($id_cliente, [
+                    'id_ciudad' => $ciudad,
+                    'direccion' => $direccion,
+                    'casa' => $casa,
+                    'codigo_postal' => $codigo_postal,
+                ]);
+                $cliente = $this->clientes->where('rut', $rut)->first();
             }
 
-
-
+            $nombreciudad = $this->ciudades->where('id', $ciudad)->first();
+            $nombreregion = $this->regiones->where('id', $nombreciudad['id_region'])->first();
+            
             $productos = array();
             $contenido = $this->cart->contents();
             $subtotal = 0;
@@ -312,6 +357,8 @@ class Tienda extends BaseController
             $data = [
                 'titulo' => 'Selecciona el metodo de envío',
                 'productos' => $productos,
+                'ciudad' => $nombreciudad,
+                'region' => $nombreregion,
                 'items' => $items,
                 'envios' => $envios,
                 'subtotal' => $subtotal,
@@ -354,10 +401,12 @@ class Tienda extends BaseController
             $rut = $this->request->getPost('rut_cliente');
             $cliente = $this->clientes->where('rut', $rut)->first();
             $envio = $this->request->getPost('radio_envio');
+            $estado = $this->estado_pedido->where('nombre', 'Ingresado')->first();
 
             $this->pedidos->save([
                 'id_clientes' => $cliente['id'],
-                'id_envios' => $envio
+                'id_envios' => $envio,
+                'id_estado' => $estado['id']
             ]);
 
             $pedido = $this->pedidos->getInsertID();
@@ -395,20 +444,29 @@ class Tienda extends BaseController
 
             $items = $this->cart->total_items();
 
-            $envios = $this->envios->where('activo', 1)->findAll();
+            $envios = $this->envios->where('id', $envio)->first();
+            $valorEnvio = $envios['valor'];
+            $total = $subtotal + $valorEnvio;
             // Clear the shopping cart
             $this->cart->destroy();
 
+            $nombreciudad = $this->ciudades->where('id', $cliente['id_ciudad'])->first();
+            $nombreregion = $this->regiones->where('id', $nombreciudad['id_region'])->first();
+
             $data = [
                 'titulo' => 'Tu pedido se a realizado con éxito',
+                'pedido' => $pedido,
                 'productos' => $productos,
                 'items' => $items,
                 'envios' => $envios,
-                'subtotal' => $subtotal,
-                'cliente' => $cliente
+                'total' => $total,
+                'cliente' => $cliente,
+                'ciudad' => $nombreciudad,
+                'region' => $nombreregion
             ];
 
             echo view('tienda/productos/pdf', $data);
+            echo view('tienda/footer');
         }
     }
     public function ciudad()

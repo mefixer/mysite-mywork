@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PedidosModel extends Model
+class EstadoPedidosModel extends Model
 {
 
-    protected $table      = 'pedidos';
+    protected $table      = 'estado_pedido';
     protected $primaryKey = 'id';
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id_clientes', 'id_envios', 'id_estado'];
+    protected $allowedFields = ['nombre', 'descripcion', 'activo'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';

@@ -22,13 +22,18 @@ class Envios extends BaseController
 
     public function index($activo = 1)
     {
-        $envios = $this->envios->where('activo', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            $envios = $this->envios->where('activo', $activo)->findAll();
 
-        $data = ['titulo' => 'Lista de envios', 'datos' => $envios];
+            $data = ['titulo' => 'Lista de envios', 'datos' => $envios];
 
-        echo view('header');
-        echo view('envios/envios', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('envios/envios', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {

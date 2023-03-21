@@ -5,19 +5,13 @@ namespace Config;
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
-// Load the system's routing file first, so that the app and ENVIRONMENT
-// can override as needed.
-if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
-}
-
 /*
  * --------------------------------------------------------------------
  * Router Setup
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Tienda');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -25,7 +19,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-$routes->setAutoRoute(true);
+// $routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -35,7 +29,27 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+// LOGIN
+$routes->get('/login', 'Login::index');
+$routes->post('/usuarios/valida', 'Usuarios::index');
+
+
+
+// TIENDA
+$routes->get('/', 'Tienda::index');
+$routes->get('/tienda', 'Tienda::index');
+$routes->get('/tienda/lista', 'Tienda::lista');
+$routes->get('/tienda/ver', 'Tienda::ver');
+$routes->get('/tienda/realizar', 'Tienda::realizar');
+$routes->post('/tienda/continuar', 'Tienda::continuar');
+$routes->post('/tienda/finalizar', 'Tienda::finalizar');
+$routes->post('/tienda/ciudad', 'Tienda::ciudad');
+$routes->post('/tienda/buscarut', 'Tienda::buscarut');
+$routes->get('/tienda/producto/(:num)', 'Tienda::producto/$1');
+$routes->get('/tienda/insertar/(:num)', 'Tienda::insertar/$1');
+$routes->get('/tienda/quitar/(:num)', 'Tienda::quitar/$1');
+
 
 /*
  * --------------------------------------------------------------------

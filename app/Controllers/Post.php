@@ -22,13 +22,18 @@ class Post extends BaseController
 
     public function index($activo = 1)
     {
-        $post = $this->post->where('activo', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            $post = $this->post->where('activo', $activo)->findAll();
 
-        $data = ['titulo' => 'Lista de post', 'datos' => $post];
+            $data = ['titulo' => 'Lista de post', 'datos' => $post];
 
-        echo view('header');
-        echo view('post/post', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('post/post', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {

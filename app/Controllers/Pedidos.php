@@ -11,6 +11,8 @@ use App\Models\RegionesModel;
 use App\Models\Detalle_pedidoModel;
 use App\Models\ProductosModel;
 use App\Models\UnidadesModel;
+use App\Models\EstadoPedidosModel;
+use CodeIgniter\CLI\Console;
 
 class Pedidos extends BaseController
 {
@@ -22,6 +24,7 @@ class Pedidos extends BaseController
     protected $detalle_pedido;
     protected $productos;
     protected $unidades;
+    protected $estado_pedido;
 
     public function __construct()
     {
@@ -33,38 +36,44 @@ class Pedidos extends BaseController
         $this->detalle_pedido = new Detalle_pedidoModel();
         $this->productos = new ProductosModel();
         $this->unidades = new UnidadesModel();
+        $this->estado_pedido = new EstadoPedidosModel();
     }
 
     public function index()
     {
-        $pedidos = $this->pedidos->findAll();
-        $clientes = array();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            $pedidos = $this->pedidos->findAll();
+            $clientes = array();
 
-        //recorrer los pedidos para mostrarlos en la vista
-        //junto al cliente que le corresponde 
-        //Y el tipo de envio que a elegido
+            //recorrer los pedidos para mostrarlos en la vista
+            //junto al cliente que le corresponde 
+            //Y el tipo de envio que a elegido
 
-        foreach ($pedidos as $content) :
+            foreach ($pedidos as $content) :
 
-            $cliente = $this->clientes->where('id', $content['id_clientes'])->first();
-            $envio_pedido = $this->envios->where('id', $content['id_envios'])->first();
-            $ciudad = $this->ciudades->where('id', $cliente['id_ciudad'])->first();
-            $region = $this->regiones->where('id', $ciudad['id_region'])->first();
-            $cliente['pedido'] = $content['id'];
-            $cliente['envio_nombre'] = $envio_pedido['nombre'];
-            $cliente['envio_descripcion'] = $envio_pedido['descripcion'];
-            $cliente['envio_valor'] = $envio_pedido['valor'];
-            $cliente['ciudad'] = $ciudad['nombre'];
-            $cliente['region'] = $region['nombre'];
+                $cliente = $this->clientes->where('id', $content['id_clientes'])->first();
+                $envio_pedido = $this->envios->where('id', $content['id_envios'])->first();
+                $ciudad = $this->ciudades->where('id', $cliente['id_ciudad'])->first();
+                $region = $this->regiones->where('id', $ciudad['id_region'])->first();
+                $cliente['pedido'] = $content['id'];
+                $cliente['envio_nombre'] = $envio_pedido['nombre'];
+                $cliente['envio_descripcion'] = $envio_pedido['descripcion'];
+                $cliente['envio_valor'] = $envio_pedido['valor'];
+                $cliente['ciudad'] = $ciudad['nombre'];
+                $cliente['region'] = $region['nombre'];
 
-            array_push($clientes, $cliente);
-        endforeach;
+                array_push($clientes, $cliente);
+            endforeach;
 
-        $datos = ['titulo' => 'Lista de pedidos', 'datos' => $clientes];
+            $datos = ['titulo' => 'Lista de pedidos', 'datos' => $clientes];
 
-        echo view('header');
-        echo view('pedidos/pedidos', $datos);
-        echo view('footer');
+            echo view('header');
+            echo view('pedidos/pedidos', $datos);
+            echo view('footer');
+        }
     }
 
     public function detalle($id)
@@ -80,6 +89,7 @@ class Pedidos extends BaseController
         $envio_pedido = $this->envios->where('id', $pedido['id_envios'])->first();
         $ciudad = $this->ciudades->where('id', $cliente['id_ciudad'])->first();
         $region = $this->regiones->where('id', $ciudad['id_region'])->first();
+        $estado_pedido = $this->estado_pedido->select('*')->findAll();
 
         $cliente['pedido'] = $pedido['id'];
         $cliente['envio_nombre'] = $envio_pedido['nombre'];
@@ -105,10 +115,19 @@ class Pedidos extends BaseController
         endforeach;
 
 
-        $data = ['titulo' => 'Detalle del Pedido.', 'pedido' => $pedido ,'cliente' => $cliente, 'productos' => $productos];
+        $data = ['titulo' => 'Detalle del Pedido.', 'pedido' => $pedido, 'cliente' => $cliente, 'productos' => $productos, 'estados' => $estado_pedido];
 
         echo view('header');
         echo view('pedidos/detalle', $data);
         echo view('footer');
     }
+
+    // SELECT 
+    // productos.nombre as producto, 
+    // SUM(detalle_pedido.cantidad) as cantidad_vendida
+    // FROM detalle_pedido 
+    // JOIN pedidos ON detalle_pedido.id_pedidos = pedidos.id 
+    // JOIN productos on detalle_pedido.id_productos = productos.id
+    // GROUP BY productos.nombre
+    // ORDER BY SUM(detalle_pedido.cantidad) DESC;
 }

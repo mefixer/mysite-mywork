@@ -6,8 +6,12 @@ class Home extends BaseController
 {
     public function index()
     {
-        echo view('header');
-        echo view('body');
-        echo view('footer');
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            return redirect()->to('/tienda');
+        } else {
+            return redirect()->to('/login');
+        }
+        // return view('welcome_message');
     }
 }

@@ -81,23 +81,24 @@
                         </div>
                         <div class="col-lg-8 col-sm-12">
 
-                            <div class="block">
+                            <div class="row">
                                 <label for="contacto" class="form-label"><strong> Contacto:</strong></label>
                                 <div class="col-12">
-                                    <p><?php echo $cliente['nombre']; ?> <?php echo $cliente['apellidos']; ?>, <?php echo $cliente['email']; ?>.</p>
+                                    <p><?php echo $cliente['nombre']; ?> <?php echo $cliente['apellidos']; ?></p>
+                                    <p><?php echo $cliente['email']; ?></p>
                                 </div>
                             </div>
                             <div class="block">
                             </div>
-                            <div class="block">
+                            <div class="row">
                                 <label for="enviar" class="form-label"><strong>Enviar a:</strong> </label>
                                 <div>
-                                    <p><?php echo $cliente['direccion']; ?> <?php echo $cliente['casa']; ?>.</p>
+                                    <p><?php echo $cliente['direccion']; ?> <?php echo $cliente['casa']; ?>, <?php echo $ciudad['nombre']; ?>, <?php echo $region['nombre']; ?>.</p>
                                 </div>
                             </div>
                             <div class="block">
                             </div>
-                            <div class="block">
+                            <div class="row">
                                 <?php foreach ($envios as $envio) { ?>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="radio_envio" id="radio_envio" value="<?php echo $envio['id']; ?>" require>
@@ -165,12 +166,14 @@
                                     <strong>Total:</strong>
                                 </div>
                                 <div class="col">
-                                    <label>$ <strong id="total"> <?php echo $subtotal; ?></strong></label>
+                                    <label><strong>$</strong> <strong id="total"> <?php echo $subtotal; ?></strong></label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
+                                <div class="block">
 
+                                </div>
+                                <div class="col">
                                     <input type="text" id="rut_cliente" name="rut_cliente" value="<?php echo $cliente['rut']; ?>" hidden>
                                     <button type="submit" class="btn btn-pedido"> Finalizar pedido</button>
 
@@ -231,6 +234,8 @@
         }
 
         .btn-pedido {
+            color: white;
+            background-color: #F786C7;
             width: 100%;
             height: auto;
             padding: 3px;
@@ -330,7 +335,6 @@
     </style>
 
     <script>
-        
         // Obtenemos todos los radio buttons del formulario
         var radio_buttons = document.getElementsByName('radio_envio');
         // Asignamos un evento change a cada radio button
@@ -363,7 +367,4 @@
                 }
             }
         }
-
-        
-        
     </script>

@@ -1,117 +1,4 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
 
-        </div>
-        <div class="col">
-            <h2 style="text-transform: uppercase;"><strong>Vista Previa</strong></h2>
-        </div>
-        <div class="col">
-
-        </div>
-    </div>
-</div>
-<div class="container">
-</div>
-<div class="container-fluid">
-
-    <div class="card" style="background-color: #faf8f5;">
-        <br>
-        <?php $count = 0?>
-        <?php foreach ($productos as $producto) {
-            if ($count == 1) {
-                break;
-            }
-            $count += 1 ;
-        ?>
-            <div class="container" style="padding-top: 10vh; padding-bottom: 10vh; font-family: Cormorant Garamond, sans-serif !important;  font-size: larger !important; ">
-                <div class="row">
-                    <div class="col-lg-5 col-sm-8" style="border-radius: 50%;">
-                        <div class="producto-tarjeta" style="border-radius: 50%;">
-                            <img src="<?php echo base_url() . '/img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-4">
-                        <?php foreach ($imagenes as $imagen) { ?>
-                            <?php if ($imagen['id_producto'] == $producto['id']) {; ?>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="producto-tarjeta-costado">
-                                            <img src="<?php echo base_url() . '/img/imagenes/' . $imagen['ruta']; ?>" alt="" class="imagen-producto-costado">
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php }; ?>
-                        <?php }; ?>
-                    </div>
-                    <div class="col-lg-5 col-sm-12">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <label><strong style="font-size: 44px;"><?php echo $producto['nombre']; ?></strong></label>
-                                <label style="font-size: 34px;">$ <?php echo  number_format($producto['precio_venta'], 0); ?></label>
-                                <p><?php echo $producto['descripcion']; ?></p>
-                                <a href="#" type="button" class="btn btn-tienda">Agregar al pedido</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php }; ?>
-        <br>
-    </div>
-</div>
-<style>
-    /* Global */
-    @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond%3A300%2C400%2C400i%2C500%2C500i%2C600%2C700%7CEB+Garamond%3A300%2C400%2C400i%2C500%2C500i%2C600%2C700%7CSpectral%3A300%2C400%2C400i%2C500%2C500i%2C600%2C700%7CArimo%3A300%2C400%2C400i%2C500%2C500i%2C600%2C700&amp;subset=latin-ext&amp;display=swap&amp;ver=1.0.0');
-
-    .producto-tarjeta {
-        background-color: #faf8f5 !important;
-        display: contents;
-        width: 100%;
-    }
-
-    .imagen-producto {
-        object-fit: cover;
-        align-items: center;
-        width: 100%;
-        height: 42rem;
-        border-radius: 3px;
-    }
-
-    .producto-tarjeta-costado {
-        background-color: #faf8f5 !important;
-        display: contents;
-        height: 100%;
-    }
-
-    .imagen-producto-costado {
-        object-fit: cover;
-        align-items: center;
-        width: 75%;
-        height: 14rem;
-        padding-bottom: 15px;
-        padding-top: 15px;
-        border-radius: 3px;
-    }
-
-    .btn-tienda {
-        background-color: #D97D48 !important;
-        color: white !important;
-        width: 10rem !important;
-        height: auto !important;
-    }
-
-    .btn-tienda:hover {
-        background-color: #F786C7 !important;
-        color: white !important;
-        width: 10rem !important;
-        height: auto !important;
-    }
-
-    body {
-        background-color: #faf8f5 !important;
-    }
-</style>
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- DataTales Example -->
@@ -172,7 +59,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" data-href="<?php echo base_url() . '/productos/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn"><i class="fas fa-trash-alt"></i>
+                                    <a href="<?php echo base_url() . '/productos/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn"><i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -186,7 +73,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<div class="modal fade" id="modal-confirma"" tabindex=" -1" role="dialog">
+<div class="modal fade" id="modal-confirma" tabindex=" -1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

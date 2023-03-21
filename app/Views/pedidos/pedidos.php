@@ -13,14 +13,9 @@
                             <th>Apellidos</th>
                             <th>Rut</th>
                             <th>Email</th>
-                            <th>Dirección</th>
-                            <th>Casa</th>
+                            <th>Region</th>
                             <th>Teléfono</th>
                             <th>Pedido</th>
-                            <th>Tipo de Envío</th>
-                            <th>valor</th>
-                            <th>Ciudad</th>
-                            <th>Region</th>
                             <th>Ver Detalle</th>
                         </tr>
                     </thead>
@@ -30,14 +25,9 @@
                             <th>Apellidos</th>
                             <th>Rut</th>
                             <th>Email</th>
-                            <th>Dirección</th>
-                            <th>Casa</th>
+                            <th>Region</th>
                             <th>Teléfono</th>
                             <th>Pedido</th>
-                            <th>Tipo de Envío</th>
-                            <th>valor</th>
-                            <th>Ciudad</th>
-                            <th>Region</th>
                             <th>Ver Detalle</th>
                         </tr>
                     </tfoot>
@@ -48,14 +38,9 @@
                                 <td><?php echo $dato['apellidos']; ?></td>
                                 <td><?php echo $dato['rut']; ?></td>
                                 <td><?php echo $dato['email']; ?></td>
-                                <td><?php echo $dato['direccion']; ?></td>
-                                <td><?php echo $dato['casa']; ?></td>
+                                <td><?php echo $dato['region']; ?></td>
                                 <td><?php echo $dato['telefono']; ?></td>
                                 <td><?php echo $dato['pedido']; ?></td>
-                                <td><?php echo $dato['envio_nombre']; ?><?php echo $dato['envio_descripcion']; ?></td>
-                                <td><?php echo $dato['envio_valor']; ?></td>
-                                <td><?php echo $dato['ciudad']; ?></td>
-                                <td><?php echo $dato['region']; ?></td>
                                 <td>
                                     <a href="<?php echo base_url() . '/pedidos/detalle/' . $dato['pedido']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>

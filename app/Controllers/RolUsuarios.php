@@ -26,13 +26,18 @@ class RolUsuarios extends BaseController
 
     public function index($activo = 1)
     {
-        $rolusuarios = $this->rolusuarios->where('activo', $activo)->findAll();
+        $session = session();
+        if (!$session->get('id_usuario')) {
+            echo view('login');
+        } else {
+            $rolusuarios = $this->rolusuarios->where('activo', $activo)->findAll();
 
-        $data = ['titulo' => 'Lista de rol de usuarios', 'datos' => $rolusuarios];
+            $data = ['titulo' => 'Lista de rol de usuarios', 'datos' => $rolusuarios];
 
-        echo view('header');
-        echo view('rolusuarios/rolusuarios', $data);
-        echo view('footer');
+            echo view('header');
+            echo view('rolusuarios/rolusuarios', $data);
+            echo view('footer');
+        }
     }
     public function eliminados($activo = 0)
     {
