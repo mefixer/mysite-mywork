@@ -6,7 +6,7 @@
             <!-- Page Heading -->
             <h3 class="mt-4"><strong><?php echo $titulo; ?></strong></h3>
             <p>
-                <a href="<?php echo base_url(); ?>/destacados" class="btn btn-outline-dark"><i class="fas fa-heart"></i> volver a destacados</a>
+                <a href="<?php echo base_url(); ?>destacados" class="btn btn-outline-dark"><i class="fas fa-heart"></i> volver a destacados</a>
             </p>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -29,7 +29,7 @@
                             <tr>
 
                                 <td><?php echo $dato['nombre']; ?></td>
-                                <td><img src="<?php echo base_url() . '/img/productos/' . $dato['img']; ?>" alt="" style="width: 12%; height: 12%;"></td>
+                                <td><img src="<?php echo base_url() . 'img/productos/' . $dato['img']; ?>" alt="" style="width: 12%; height: 12%;"></td>
                                 <td>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" onchange="insert()" role="switch" id="flexSwitchCheckChecked" name="flexSwitchCheckChecked" value="<?php echo $dato['id'] ?>" <?php if ($dato['destacado'] == 1) {; ?> <?php echo 'checked'; ?> <?php }; ?>>
@@ -39,7 +39,7 @@
                                         function insert() {
                                             var id = document.getElementById('flexSwitchCheckChecked');
                                             $.ajax({
-                                                url: '<?php echo base_url(); ?>/destacados/insertar',
+                                                url: '<?php echo base_url(); ?>destacados/insertar',
                                                 type: 'POST',
                                                 data: {
                                                     id: id.value

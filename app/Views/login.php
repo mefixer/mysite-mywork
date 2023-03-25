@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="<?php echo base_url(); ?>/img/logo-white.png">
+    <link rel="icon" href="<?php echo base_url(); ?>img/logo-white.png">
     <title>Abrazaté</title>
     <!-- Custom fonts for this template -->
-    <link href="<?php echo base_url(); ?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
-    <link href="<?php echo base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -40,7 +40,7 @@
                                             <br>
                                             <br>
                                         </div>
-                                        <form method="POST" action="<?php echo base_url(); ?>/usuarios/valida" autocomplete="off">
+                                        <form method="POST" action="<?php echo base_url(); ?>usuarios/valida" autocomplete="off">
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-12 col-sm-12">
@@ -94,21 +94,21 @@
     <!-- End of Footer -->
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url(); ?>/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url(); ?>vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="<?php echo base_url(); ?>/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?php echo base_url(); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url(); ?>/js/sb-admin-2.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="<?php echo base_url(); ?>/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url(); ?>/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="<?php echo base_url(); ?>vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="<?php echo base_url(); ?>/js/demo/datatables-demo.js"></script>
+    <script src="<?php echo base_url(); ?>js/demo/datatables-demo.js"></script>
 
 </body>
 

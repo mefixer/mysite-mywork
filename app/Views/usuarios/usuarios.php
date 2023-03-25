@@ -6,8 +6,8 @@
                 <!-- Page Heading -->
     <h3 class="mt-4"><?php echo $titulo; ?></h3>
     <p>
-        <a href="<?php echo base_url(); ?>/usuarios/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar un usuario</a>
-        <a href="<?php echo base_url(); ?>/usuarios/eliminados" class="btn btn-outline-danger"><i class="fas fa-th-list"></i> Lista de usuarios eliminados</a>
+        <a href="<?php echo base_url(); ?>usuarios/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar un usuario</a>
+        <a href="<?php echo base_url(); ?>usuarios/eliminados" class="btn btn-outline-danger"><i class="fas fa-th-list"></i> Lista de usuarios eliminados</a>
     </p>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -39,11 +39,11 @@
                                 <td><?php echo $dato['nombre_usuario']; ?></td>
                                 <td><?php echo $dato['correo']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/usuarios/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
+                                    <a href="<?php echo base_url() . 'usuarios/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" data-href="<?php echo base_url() . '/usuarios/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
+                                    <a href="#" data-href="<?php echo base_url() . 'usuarios/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

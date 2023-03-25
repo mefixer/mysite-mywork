@@ -84,7 +84,7 @@ class Productos extends BaseController
 
         $session = session();
         if (!$session->get('id_usuario')) {
-            return redirect()->to('/login');
+            return redirect()->to('login');
         } else {
             $productos = $this->productos->where('activo', $activo)->findAll();
             $imagenes = $this->imagenes->where('activo', $activo)->findAll();
@@ -247,11 +247,11 @@ class Productos extends BaseController
     public function eliminar($id)
     {
         $this->productos->update($id, ['activo' => 0]);
-        return redirect()->to(base_url() . '/productos');
+        return redirect()->to(base_url() . 'productos');
     }
     public function reingresar($id)
     {
         $this->productos->update($id, ['activo' => 1]);
-        return redirect()->to(base_url() . '/productos');
+        return redirect()->to(base_url() . 'productos');
     }
 }

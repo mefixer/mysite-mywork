@@ -13,12 +13,12 @@
     </div>
 </div>
 <br>
-<form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>/productos/actualizar" autocomplete="off">
+<form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>productos/actualizar" autocomplete="off">
     <div class="container-fluid ">
         <div class="row">
             <div class="col-3 col-sm-2">
                 <div class="producto-tarjeta">
-                    <img src="<?php echo base_url() . '/img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
+                    <img src="<?php echo base_url() . 'img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
                 </div>
             </div>
             <div class="col-5 col-sm-5">
@@ -150,7 +150,7 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-12">
-                                <a href="<?php echo base_url(); ?>/productos" class="btn btn-outline-dark col-12">
+                                <a href="<?php echo base_url(); ?>productos" class="btn btn-outline-dark col-12">
                                     <i class="fas fa-barcode"></i> Regresar a la lista de productos</a>
                             </div>
                         </div>

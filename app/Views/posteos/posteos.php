@@ -3,7 +3,7 @@
     <!-- Page Heading -->
     <h3 class="mt-4"><?php echo $titulo; ?></h3>
     <p>
-        <a href="<?php echo base_url(); ?>/posteos/nuevo" class="btn btn-outline-warning  btn-sm"><i class="fas fa-plus"></i> Agregar un posteo</a>
+        <a href="<?php echo base_url(); ?>posteos/nuevo" class="btn btn-outline-warning  btn-sm"><i class="fas fa-plus"></i> Agregar un posteo</a>
         
     </p>
     <!-- DataTales Example -->
@@ -30,11 +30,11 @@
                             <tr>
                                 <td><?php echo $dato['url']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/posteos/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
+                                    <a href="<?php echo base_url() . 'posteos/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" data-href="<?php echo base_url() . '/posteos/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
+                                    <a href="#" data-href="<?php echo base_url() . 'posteos/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

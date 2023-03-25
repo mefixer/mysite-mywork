@@ -42,7 +42,7 @@
                                 <td><?php echo $dato['telefono']; ?></td>
                                 <td><?php echo $dato['pedido']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/pedidos/detalle/' . $dato['pedido']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
+                                    <a href="<?php echo base_url() . 'pedidos/detalle/' . $dato['pedido']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>
                                 </td>
                             </tr>

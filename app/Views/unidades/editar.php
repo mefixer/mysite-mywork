@@ -1,4 +1,3 @@
-<?php use CodeIgniter\Filters\CSRF; ?>
 <main>
     <div class="container-fluid">
         <h1 class="mt-4"><?php echo $titulo; ?></h1>
@@ -7,7 +6,7 @@
                 <?php echo $validation->listErrors(); ?>
             </div>
         <?php } ?>
-        <form method="POST" action="<?php echo base_url(); ?>/unidades/actualizar" autocomplete="off">
+        <form method="POST" action="<?php echo base_url(); ?>unidades/actualizar" autocomplete="off">
             <?php csrf_field(); ?>
             <input type="hidden" value="<?php echo $datos['id'] ?>" name="id">
             <div class="form-group">
@@ -23,7 +22,7 @@
                 </div>
             </div>
             <br>
-            <a href="<?php echo base_url(); ?>/unidades" class="btn btn-outline-primary btn-sm"><i class="fas fa-thermometer-quarter"></i> Regresar a la lista de unidades</a>
+            <a href="<?php echo base_url(); ?>unidades" class="btn btn-outline-primary btn-sm"><i class="fas fa-thermometer-quarter"></i> Regresar a la lista de unidades</a>
             <button type="submit" class="btn btn-outline-success btn-sm"><i class="far fa-save"></i> Guardar cambios</button>
         </form>
     </div>

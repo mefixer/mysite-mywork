@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <h1 class="mt-4"><?php echo $titulo; ?></h1>
     <p>
-        <a href="<?php echo base_url(); ?>/unidades" class="btn btn-sm btn-outline-primary"><i class="fas fa-thermometer-quarter"></i> Volver a lista de unidades</a>
+        <a href="<?php echo base_url(); ?>unidades" class="btn btn-sm btn-outline-primary"><i class="fas fa-thermometer-quarter"></i> Volver a lista de unidades</a>
     </p>
 
     <!-- DataTales Example -->
@@ -37,7 +37,7 @@
                                 <td><?php echo $dato['id']; ?></td>
                                 <td><?php echo $dato['nombre']; ?></td>
                                 <td><?php echo $dato['nombre_corto']; ?></td>
-                                <td><a href="#" data-href="<?php echo base_url() . '/unidades/reingresar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Restaurar registro"><i class="fas fa-level-up-alt"></i></a></td>
+                                <td><a href="#" data-href="<?php echo base_url() . 'unidades/reingresar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Restaurar registro"><i class="fas fa-level-up-alt"></i></a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

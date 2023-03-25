@@ -68,7 +68,7 @@ class Anuncios extends BaseController
                 'descripcion' => $descripcion,
                 'img' => $img->getName()
             ]);
-            return redirect()->to(base_url() . '/anuncios');
+            return redirect()->to(base_url() . 'anuncios');
         } else {
             $data = ['titulo' => 'Agregar un anuncios', 'validation' => $this->validator];
             echo view('header');

@@ -7,8 +7,8 @@
             <!-- Page Heading -->
             <h3 class="mt-4"><?php echo $titulo; ?></h3>
             <p>
-                <a href="<?php echo base_url(); ?>/unidades/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar una unidad</a>
-                <a href="<?php echo base_url(); ?>/unidades/eliminados" class="btn btn-outline-danger"><i class="fas fa-th-list"></i> Lista de eliminadas</a>
+                <a href="<?php echo base_url(); ?>unidades/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar una unidad</a>
+                <a href="<?php echo base_url(); ?>unidades/eliminados" class="btn btn-outline-danger"><i class="fas fa-th-list"></i> Lista de eliminadas</a>
             </p>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -34,11 +34,11 @@
                                 <td><?php echo $dato['nombre']; ?></td>
                                 <td><?php echo $dato['nombre_corto']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/unidades/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
+                                    <a href="<?php echo base_url() . 'unidades/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" data-href="<?php echo base_url() . '/unidades/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
+                                    <a href="#" data-href="<?php echo base_url() . 'unidades/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

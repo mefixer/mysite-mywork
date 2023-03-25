@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UsuariosModel;
 use App\Models\RolUsuariosModel;
-use CodeIgniter\CLI\Console;
 
 class Usuarios extends BaseController
 {
@@ -113,7 +112,8 @@ class Usuarios extends BaseController
     public function insertar()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $this->validate($this->reglas)) {
-            $hash = password_hash($this->request->getPost('password'), PASSWORD_BCRYPT);
+            $passwordl = $this->request->getPost('password');
+            $hash = password_hash($passwordl, PASSWORD_BCRYPT);
             $this->usuarios->save([
                 'nombre' => $this->request->getPost('nombre'),
                 'apellido' => $this->request->getPost('apellido'),
@@ -122,7 +122,7 @@ class Usuarios extends BaseController
                 'password' => $hash,
                 'id_rol' => $this->request->getPost('id_rol')
             ]);
-            return redirect()->to(base_url() . '/usuarios');
+            return redirect()->to(base_url() . 'usuarios');
         } else {
             $activo = 1;
             $rolusuarios = $this->rolusuarios->where('activo', $activo)->findAll();
@@ -165,7 +165,7 @@ class Usuarios extends BaseController
                     'id_rol' => $this->request->getPost('id_rol')
                 ]
             );
-            return redirect()->to(base_url() . '/usuarios');
+            return redirect()->to(base_url() . 'usuarios');
         } else {
             $this->editar($this->request->getPost('id'), $this->validator);
         }
@@ -173,12 +173,12 @@ class Usuarios extends BaseController
     public function eliminar($id)
     {
         $this->usuarios->update($id, ['activo' => 0]);
-        return redirect()->to(base_url() . '/usuarios');
+        return redirect()->to(base_url() . 'usuarios');
     }
     public function reingresar($id)
     {
         $this->usuarios->update($id, ['activo' => 1]);
-        return redirect()->to(base_url() . '/usuarios');
+        return redirect()->to(base_url() . 'usuarios');
     }
     public function login()
     {
@@ -187,15 +187,12 @@ class Usuarios extends BaseController
     public function valida()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST" && $this->validate($this->reglasLog)) {
-
-            print_r('ingresa');
             $usuario = $this->request->getPost('nombre_usuario');
             $password = $this->request->getPost('password');
 
 
             $datosUsuario = $this->usuarios->where('nombre_usuario', $usuario)->first();
 
-            print_r($datosUsuario);
             if ($datosUsuario != NULL) {
                 if (password_verify($password, $datosUsuario['password'])) {
                     $datosSesion = [
@@ -220,7 +217,6 @@ class Usuarios extends BaseController
                 echo view('login', $data);
             }
         } else {
-            print_r('pasa por aqui');
             $data = ['validation' => $this->validator];
             echo view('login', $data);
         }

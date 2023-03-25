@@ -66,7 +66,7 @@ class Post extends BaseController
                 'descripcion' => $this->request->getPost('descripcion'),
                 'img' => $img->getName()
             ]);
-            return redirect()->to(base_url() . '/post');
+            return redirect()->to(base_url() . 'post');
         } else {
             $data = ['titulo' => 'Agregar un Intermedio', 'validation' => $this->validator];
             echo view('header');
@@ -100,7 +100,7 @@ class Post extends BaseController
                     'descripcion' => $this->request->getPost('descripcion')
                 ]
             );
-            return redirect()->to(base_url() . '/post');
+            return redirect()->to(base_url() . 'post');
         } else {
 
             $img = $this->request->getFile('imagen_intermedio');
@@ -119,19 +119,19 @@ class Post extends BaseController
                     'img' => $img->getName()
                 ]
             );
-            return redirect()->to('./post');
+            return redirect()->to('post');
         }
     }
 
     public function eliminar($id)
     {
         $this->post->update($id, ['activo' => 0]);
-        return redirect()->to(base_url() . '/post');
+        return redirect()->to(base_url() . 'post');
     }
 
     public function reingresar($id)
     {
         $this->post->update($id, ['activo' => 1]);
-        return redirect()->to(base_url() . '/post');
+        return redirect()->to(base_url() . 'post');
     }
 }

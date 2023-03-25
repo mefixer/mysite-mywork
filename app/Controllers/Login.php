@@ -9,7 +9,6 @@ class Login extends BaseController
     public function index()
     {
         $session = session();
-        print_r($session->get('id_usuario'));
         if (!$session->get('id_usuario')) {
             echo view('login');
         } else {

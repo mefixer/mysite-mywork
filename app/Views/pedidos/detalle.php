@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-10">
-                    <a href="<?php echo base_url(); ?>/pedidos" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Volver a los pedidos</a>
+                    <a href="<?php echo base_url(); ?>pedidos" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Volver a los pedidos</a>
                 </div>
                 <div class="col-1"></div>
             </div>
@@ -49,7 +49,7 @@
                             <div class=""><label><strong>Codigo:</strong> <?php echo $producto['codigo']; ?></label></div>
                             <div class=""><label><strong>Nombre:</strong> <?php echo $producto['nombre']; ?></label></div>
                             <div class=""><label><strong>Valor:</strong> $ <?php echo $producto['precio_venta']; ?></label></div>
-                            <div class=""><img src="<?php echo base_url() . '/img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto"></div>
+                            <div class=""><img src="<?php echo base_url() . 'img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto"></div>
                             <div class=""><label><strong>Cantidad:</strong> <?php echo $producto['cantidad']; ?></label></div>
                         </div>
                         <?php $total += $producto['precio_venta']; ?>
@@ -89,7 +89,7 @@
         var pedido = <?php echo $pedido['id']?>;
         console.log(valorSeleccionado);
         $.ajax({
-            url: '<?php echo base_url(); ?>/mascomprados/actualiza_estado',
+            url: '<?php echo base_url(); ?>mascomprados/actualiza_estado',
             type: 'POST',
             data: {
                 estado: valorSeleccionado,

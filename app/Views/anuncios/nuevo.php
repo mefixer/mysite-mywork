@@ -8,14 +8,14 @@
             </div>
         <?php } ?>
 
-        <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>/anuncios/insertar" autocomplete="off">
+        <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>anuncios/insertar" autocomplete="off">
             <div class="form-group">
                 <div class="row">
                     <div class="col-6 col-sm-6">
                         <span><strong>Titulo</strong></span>
-                        <input type="text" class="form-control" id="titulo_anuncios" name="titulo_anuncios" required>
+                        <input type="text" class="form-control" id="titulo_anuncios" name="titulo_anuncios" >
                         <span><strong>Descripción</strong></span>
-                        <textarea class="form-control" id="descripcion_anuncios" rows="2" name="descripcion_anuncios" required></textarea>
+                        <textarea class="form-control" id="descripcion_anuncios" rows="2" name="descripcion_anuncios" ></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <br>
-            <a href="<?php echo base_url(); ?>/anuncios" class="btn btn-outline-primary btn-sm"><i class="fas fa-thermometer-quarter"></i> Regresar a la lista de anuncios</a>
+            <a href="<?php echo base_url(); ?>anuncios" class="btn btn-outline-primary btn-sm"><i class="fas fa-thermometer-quarter"></i> Regresar a la lista de anuncios</a>
             <button type="submit" class="btn btn-outline-success btn-sm"><i class="far fa-save"></i> Guardar anuancio</button>
         </form>
     </div>

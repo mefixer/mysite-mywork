@@ -20,13 +20,13 @@
     </div>
 </div>
 <br>
-<form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>/productos/addimagen/<?php echo $producto['id']; ?>" autocomplete="off">
+<form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>productos/addimagen/<?php echo $producto['id']; ?>" autocomplete="off">
     <div class="container-fluid ">
         <div class="row">
             <div class="col-lg-3 col-sm-3">
                 <h4>Imagen base</h4>
                 <div class="producto-tarjeta">
-                    <img src="<?php echo base_url() . '/img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
+                    <img src="<?php echo base_url() . 'img/productos/' . $producto['img']; ?>" alt="" class="imagen-producto">
                 </div>
             </div>
             <div class="col-lg-5 col-sm-5">
@@ -53,7 +53,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-12">
-                            <a href="<?php echo base_url(); ?>/productos" class="btn btn-outline-dark col-12">
+                            <a href="<?php echo base_url(); ?>productos" class="btn btn-outline-dark col-12">
                                 <i class="fas fa-barcode"></i> Regresar a la lista de productos</a>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                 <div class="row">
                     <br>
                     <?php foreach ($imagenes as $imagen) {; ?>
-                        <img src="<?php echo base_url() . '/img/imagenes/' . $imagen['ruta']; ?>" alt="" class="imagen-producto-costado">
+                        <img src="<?php echo base_url() . 'img/imagenes/' . $imagen['ruta']; ?>" alt="" class="imagen-producto-costado">
                     <?php }; ?>
                 </div>
             </div>

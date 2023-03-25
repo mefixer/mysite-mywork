@@ -115,7 +115,7 @@ class Portadas extends BaseController
                     ]
                 );
             }
-            return redirect()->to(base_url() . '/portadas');
+            return redirect()->to(base_url() . 'portadas');
         } else {
             $this->editar($id);
         }
@@ -127,10 +127,10 @@ class Portadas extends BaseController
 
         if ($portada['activo'] == 0) {
             $this->portadas->update($id, ['activo' => 0]);
-            return redirect()->to(base_url() . '/portadas');
+            return redirect()->to(base_url() . 'portadas');
         } else {
             $this->portadas->update($id, ['activo' => 1]);
-            return redirect()->to(base_url() . '/portadas');
+            return redirect()->to(base_url() . 'portadas');
         }
     }
     public function activar()

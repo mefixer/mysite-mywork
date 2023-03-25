@@ -12,15 +12,15 @@ $user_session = session();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="<?php echo base_url(); ?>/img/logo.png">
+    <link rel="icon" href="<?php echo base_url(); ?>img/logo.png">
     <title>Abrazaté</title>
     <!-- Custom fonts for this template -->
-    <link href="<?php echo base_url(); ?>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template -->
-    <link href="<?php echo base_url(); ?>/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="<?php echo base_url(); ?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -32,9 +32,9 @@ $user_session = session();
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>login">
                 <div class="sidebar-brand-icon">
-                    <img src="<?php echo base_url(); ?>/img/logo-white.png" style="width: 20%;" alt="">
+                    <img src="<?php echo base_url(); ?>img/logo-white.png" style="width: 20%;" alt="">
                 </div>
             </a>
 
@@ -64,9 +64,9 @@ $user_session = session();
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Editar Componentes:</h6>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/productos"><i class="fas fa-barcode"></i> Productos</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/categorias"><i class="fas fa-list-alt"></i> Categoria de productos</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/unidades"><i class="fas fa-thermometer-quarter"></i> Unidad de medida</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>productos"><i class="fas fa-barcode"></i> Productos</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>categorias"><i class="fas fa-list-alt"></i> Categoria de productos</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>unidades"><i class="fas fa-thermometer-quarter"></i> Unidad de medida</a>
                     </div>
                 </div>
             </li>
@@ -79,11 +79,11 @@ $user_session = session();
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Editar Componentes:</h6>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/portadas"><i class="fas fa-pager"></i> Portadas</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/post"><i class="fas fa-digital-tachograph"></i> Post</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/destacados"><i class="fas fa-heart"></i> Productos Destacados</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/anuncios"><i class="fas fa-bullhorn"></i> Anuncios</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/posteos"><i class="fab fa-instagram"></i> Posteos Instagram</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>portadas"><i class="fas fa-pager"></i> Portadas</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>post"><i class="fas fa-digital-tachograph"></i> Post</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>destacados"><i class="fas fa-heart"></i> Productos Destacados</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>anuncios"><i class="fas fa-bullhorn"></i> Anuncios</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>posteos"><i class="fab fa-instagram"></i> Posteos Instagram</a>
                     </div>
                 </div>
             </li>
@@ -96,10 +96,10 @@ $user_session = session();
                 <div id="collapseFor" class="collapse" aria-labelledby="headingFor" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ver stats:</h6>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/pedidos"><i class="fas fa-shipping-fast"></i> Pedidos</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/stock"><i class="fas fa-truck-loading"></i> Stock</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/mascomprados"><i class="fas fa-wave-square"></i> Productos</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/interact"><i class="fas fa-rocket"></i> Interacciones</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>pedidos"><i class="fas fa-shipping-fast"></i> Pedidos</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>stock"><i class="fas fa-truck-loading"></i> Stock</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>mascomprados"><i class="fas fa-wave-square"></i> Productos</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>interact"><i class="fas fa-rocket"></i> Interacciones</a>
                     </div>
                 </div>
             </li>
@@ -119,9 +119,9 @@ $user_session = session();
                 <div id="collapseTree" class="collapse" aria-labelledby="headingTree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Editar Componentes:</h6>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/usuarios"><i class="fas fa-users"></i> Usuarios</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/rolusuarios"><i class="fas fa-user-tag"></i> Rol de usuario</a>
-                        <a class="collapse-item" href="<?php echo base_url(); ?>/envios"><i class="fas fa-shipping-fast"></i> Envios</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>usuarios"><i class="fas fa-users"></i> Usuarios</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>rolusuarios"><i class="fas fa-user-tag"></i> Rol de usuario</a>
+                        <a class="collapse-item" href="<?php echo base_url(); ?>envios"><i class="fas fa-shipping-fast"></i> Envios</a>
                     </div>
                 </div>
             </li>
@@ -239,7 +239,7 @@ $user_session = session();
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="<?php echo base_url(); ?>/img/user.png" alt="...">
+                                        <img class="rounded-circle" src="<?php echo base_url(); ?>img/user.png" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -250,7 +250,7 @@ $user_session = session();
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="<?php echo base_url(); ?>/img/user.png" alt="...">
+                                        <img class="rounded-circle" src="<?php echo base_url(); ?>img/user.png" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -261,7 +261,7 @@ $user_session = session();
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="<?php echo base_url(); ?>/img/user.png" alt="...">
+                                        <img class="rounded-circle" src="<?php echo base_url(); ?>img/user.png" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -291,11 +291,11 @@ $user_session = session();
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $user_session->nombre; ?> <?php echo $user_session->apellido; ?></span>
-                                <img class="img-profile rounded-circle" src="<?php echo base_url(); ?>/img/user.png">
+                                <img class="img-profile rounded-circle" src="<?php echo base_url(); ?>img/user.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" type="button" href="<?php echo base_url(); ?>/usuarios/logout">
+                                <a class="dropdown-item" type="button" href="<?php echo base_url(); ?>usuarios/logout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Cerrar sesión
                                 </a>

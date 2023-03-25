@@ -6,8 +6,8 @@
         <div class="card-body">
         <h3 class="mt-4"><?php echo $titulo; ?></h3>
         <p>
-            <a href="<?php echo base_url(); ?>/categorias/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar una categoria</a>
-            <a href="<?php echo base_url(); ?>/categorias/eliminados" class="btn btn-outline-danger"><i class="fas fa-th-list"></i> Lista de eliminadas</a>
+            <a href="<?php echo base_url(); ?>categorias/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar una categoria</a>
+            <a href="<?php echo base_url(); ?>categorias/eliminados" class="btn btn-outline-danger"><i class="fas fa-th-list"></i> Lista de eliminadas</a>
         </p>
             <div class="table-responsive">
                 <table id="dataTable" class="table table-bordered" width="100%" cellspacing="0">
@@ -32,7 +32,7 @@
                             <tr>
                                 <td><?php echo $dato['nombre']; ?></td>
                                 <td><?php echo $dato['descripcion']; ?></td>
-                                <td><a href="<?php echo base_url() . '/categorias/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i></a></td>
+                                <td><a href="<?php echo base_url() . 'categorias/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i></a></td>
                                 <td><a href="#" data-href="<?php echo base_url() . '/categorias/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                         <?php } ?>

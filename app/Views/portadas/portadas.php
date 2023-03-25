@@ -7,7 +7,7 @@
             <!-- Page Heading -->
             <h2 class="mt-4"><strong><?php echo $titulo; ?></strong></h2>
             <p>
-                <a href="<?php echo base_url(); ?>/portadas/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar una portada</a>
+                <a href="<?php echo base_url(); ?>portadas/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar una portada</a>
             </p>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -34,7 +34,7 @@
                             <tr>
                                 <td><?php echo $dato['titulo']; ?></td>
                                 <td><?php echo $dato['descripcion']; ?></td>
-                                <td><img src="<?php echo base_url() . '/img/portadas/' . $dato['img']; ?>" alt="" style="width: 20%; height: 20%;"></td>
+                                <td><img src="<?php echo base_url() . 'img/portadas/' . $dato['img']; ?>" alt="" style="width: 20%; height: 20%;"></td>
                                 <td>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" onchange="activar(this)" value="<?php echo $dato['id']; ?>" id="switchCheckPortada<?php echo $dato['id']; ?>" name="switchCheckPortada<?php echo $dato['id']; ?>" <?php if ($dato['activo'] == 1) {; ?> <?php echo 'checked'; ?> <?php } else { ?> <?php echo ''; ?> <?php }; ?>>
@@ -43,7 +43,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/portadas/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
+                                    <a href="<?php echo base_url() . 'portadas/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>
                                 </td>
                             </tr>
@@ -58,7 +58,7 @@
 <script>
     function activar(id) {
         $.ajax({
-            url: '<?php echo base_url(); ?>/portadas/activar',
+            url: '<?php echo base_url(); ?>portadas/activar',
             type: 'POST',
             data: {
                 id: id.value

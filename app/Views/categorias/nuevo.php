@@ -1,6 +1,3 @@
-<?php
-
-use CodeIgniter\Filters\CSRF; ?>
 <main>
     <div class="container-fluid">
         <h3 class="mt-4"><?php echo $titulo; ?></h3>
@@ -11,7 +8,7 @@ use CodeIgniter\Filters\CSRF; ?>
             </div>
         <?php } ?>
 
-        <form method="POST" action="<?php echo base_url(); ?>/categorias/insertar" autocomplete="off">
+        <form method="POST" action="<?php echo base_url(); ?>categorias/insertar" autocomplete="off">
         <?php csrf_field(); ?>
             <div class="form-group">
                 <div class="row">
@@ -26,7 +23,7 @@ use CodeIgniter\Filters\CSRF; ?>
                 </div>
             </div>
             <br>
-            <a href="<?php echo base_url(); ?>/categorias" class="btn btn-outline-primary btn-sm"><i class="fas fa-tasks"></i> Regresar a lista de categorias</a>
+            <a href="<?php echo base_url(); ?>categorias" class="btn btn-outline-primary btn-sm"><i class="fas fa-tasks"></i> Regresar a lista de categorias</a>
             <button type="submit" class="btn btn-outline-success btn-sm"><i class="far fa-save"></i> Guardar categoria</button>
         </form>
     </div>

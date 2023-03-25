@@ -6,7 +6,7 @@
             <!-- Page Heading -->
             <h1 class="mt-4"><?php echo $titulo; ?></h1>
             <p>
-                <a href="<?php echo base_url(); ?>/post" class="btn btn-sm btn-outline-primary"><i class="fas fa-digital-tachograph"></i> Volver a lista de post</a>
+                <a href="<?php echo base_url(); ?>post" class="btn btn-sm btn-outline-primary"><i class="fas fa-digital-tachograph"></i> Volver a lista de post</a>
             </p>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -29,7 +29,7 @@
                             <tr>
                                 <td><?php echo $dato['titulo']; ?></td>
                                 <td><?php echo $dato['Descripcion']; ?></td>
-                                <td><a href="#" data-href="<?php echo base_url() . '/intremedios/reingresar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Restaurar registro"><i class="fas fa-level-up-alt"></i></a></td>
+                                <td><a href="#" data-href="<?php echo base_url() . 'intremedios/reingresar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Restaurar registro"><i class="fas fa-level-up-alt"></i></a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

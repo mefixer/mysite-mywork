@@ -9,7 +9,7 @@
             <h2 class="mt-4"><strong><?php echo $titulo; ?></strong></h2>
             <div class="table-responsive">
                 <p>
-                    <a href="<?php echo base_url(); ?>/productos/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar un nuevo producto</a>
+                    <a href="<?php echo base_url(); ?>productos/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar un nuevo producto</a>
                 </p>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -51,15 +51,15 @@
                                 <td><?php echo $dato['stock_minimo']; ?></td>
                                 <td><?php echo $dato['inventariable']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/productos/imagen/' . $dato['id']; ?>" class="btn"><i class="fas fa-image"> + </i>
+                                    <a href="<?php echo base_url() . 'productos/imagen/' . $dato['id']; ?>" class="btn"><i class="fas fa-image"> + </i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/productos/editar/' . $dato['id']; ?>" class="btn"><i class="fas fa-edit"> </i>
+                                    <a href="<?php echo base_url() . 'productos/editar/' . $dato['id']; ?>" class="btn"><i class="fas fa-edit"> </i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/productos/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn"><i class="fas fa-trash-alt"></i>
+                                    <a href="<?php echo base_url() . 'productos/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn"><i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

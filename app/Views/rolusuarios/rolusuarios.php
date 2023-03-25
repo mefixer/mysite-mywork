@@ -3,8 +3,8 @@
     <!-- Page Heading -->
     <h3 class="mt-4"><?php echo $titulo; ?></h3>
     <p>
-        <a href="<?php echo base_url(); ?>/rolusuarios/nuevo" class="btn btn-outline-warning  btn-sm"><i class="fas fa-plus"></i> Agregar un rol de usuario</a>
-        <a href="<?php echo base_url(); ?>/rolusuarios/eliminados" class="btn btn-outline-danger btn-sm"><i class="fas fa-th-list"></i> Lista de roles de usuario eliminados</a>
+        <a href="<?php echo base_url(); ?>rolusuarios/nuevo" class="btn btn-outline-warning  btn-sm"><i class="fas fa-plus"></i> Agregar un rol de usuario</a>
+        <a href="<?php echo base_url(); ?>rolusuarios/eliminados" class="btn btn-outline-danger btn-sm"><i class="fas fa-th-list"></i> Lista de roles de usuario eliminados</a>
     </p>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -33,11 +33,11 @@
                                 <td><?php echo $dato['nombre']; ?></td>
                                 <td><?php echo $dato['descripcion']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/rolusuarios/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
+                                    <a href="<?php echo base_url() . 'rolusuarios/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" data-href="<?php echo base_url() . '/rolusuarios/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
+                                    <a href="#" data-href="<?php echo base_url() . 'rolusuarios/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

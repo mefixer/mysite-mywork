@@ -65,7 +65,7 @@ class RolUsuarios extends BaseController
                 'nombre' => $this->request->getPost('nombre'),
                 'descripcion' => $this->request->getPost('descripcion')
             ]);
-            return redirect()->to(base_url() . '/rolusuarios');
+            return redirect()->to(base_url() . 'rolusuarios');
         } else {
             $data = ['titulo' => 'Agregar un rol de usuario', 'validation' => $this->validator];
             echo view('header');
@@ -98,7 +98,7 @@ class RolUsuarios extends BaseController
                     'descripcion' => $this->request->getPost('descripcion')
                 ]
             );
-            return redirect()->to(base_url() . '/rolusuarios');
+            return redirect()->to(base_url() . 'rolusuarios');
         } else {
             $this->editar($this->request->getPost('id'), $this->validator);
         }
@@ -107,12 +107,12 @@ class RolUsuarios extends BaseController
     public function eliminar($id)
     {
         $this->rolusuarios->update($id, ['activo' => 0]);
-        return redirect()->to(base_url() . '/rolusuarios');
+        return redirect()->to(base_url() . 'rolusuarios');
     }
 
     public function reingresar($id)
     {
         $this->rolusuarios->update($id, ['activo' => 1]);
-        return redirect()->to(base_url() . '/rolusuarios');
+        return redirect()->to(base_url() . 'rolusuarios');
     }
 }

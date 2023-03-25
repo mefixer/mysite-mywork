@@ -7,7 +7,7 @@
                 <?php echo $validation->listErrors(); ?>
             </div>
         <?php } ?>
-        <form method="POST" action="<?php echo base_url(); ?>/rolusuarios/actualizar" autocomplete="off">
+        <form method="POST" action="<?php echo base_url(); ?>rolusuarios/actualizar" autocomplete="off">
             <input type="hidden" value="<?php echo $datos['id'] ?>" name="id">
             <div class="form-group">
                 <div class="row">
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <br>
-            <a href="<?php echo base_url(); ?>/unidades" class="btn btn-outline-primary btn-sm"><i class="fas fa-thermometer-quarter"></i> Regresar a la lista de roles</a>
+            <a href="<?php echo base_url(); ?>unidades" class="btn btn-outline-primary btn-sm"><i class="fas fa-thermometer-quarter"></i> Regresar a la lista de roles</a>
             <button type="submit" class="btn btn-outline-success btn-sm"><i class="far fa-save"></i> Guardar cambios</button>
         </form>
     </div>

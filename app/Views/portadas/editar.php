@@ -7,7 +7,7 @@
                 <?php echo $validation->listErrors(); ?>
             </div>
         <?php } ?>
-        <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>/portadas/actualizar" autocomplete="off">
+        <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>portadas/actualizar" autocomplete="off">
             <input type="hidden" value="<?php echo $datos['id'] ?>" name="id">
             <div class="form-group">
                 <div class="row">
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <br>
-            <a href="<?php echo base_url(); ?>/portadas" class="btn btn-outline-primary btn-sm"><i class="fas fa-thermometer-quarter"></i> Regresar a la lista de portadas</a>
+            <a href="<?php echo base_url(); ?>portadas" class="btn btn-outline-primary btn-sm"><i class="fas fa-thermometer-quarter"></i> Regresar a la lista de portadas</a>
             <button type="submit" class="btn btn-outline-success btn-sm"><i class="far fa-save"></i> Guardar cambios</button>
         </form>
     </div>

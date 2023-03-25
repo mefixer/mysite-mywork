@@ -2,7 +2,7 @@
     <main>
         <div class="container-fluid">
             <h1 class="mt-4"><?php echo $titulo; ?></h1>
-            <form method="POST" action="<?php echo base_url(); ?>/categorias/actualizar" autocomplete="off">
+            <form method="POST" action="<?php echo base_url(); ?>categorias/actualizar" autocomplete="off">
             <input type="hidden" value="<?php echo $datos['id']?>" name="id">
                 <div class="form-group">
                     <div class="row">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <br>
-                <a href="<?php echo base_url(); ?>/categorias" class="btn btn-primary btn-sm">Regresar</a>
+                <a href="<?php echo base_url(); ?>categorias" class="btn btn-primary btn-sm">Regresar</a>
                 <button type="submit" class="btn btn-success btn-sm">Guardar</button>
             </form>
         </div>

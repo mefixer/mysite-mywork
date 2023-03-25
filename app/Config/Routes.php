@@ -32,8 +32,73 @@ $routes->set404Override();
 
 // LOGIN
 $routes->get('/login', 'Login::index');
-$routes->post('/usuarios/valida', 'Usuarios::index');
+$routes->get('/usuarios/logout', 'Usuarios::logout');
+$routes->post('/usuarios/valida', 'Usuarios::valida');
+$routes->get('/usuarios', 'Usuarios::index');
+$routes->get('/usuarios/nuevo', 'Usuarios::nuevo');
+$routes->post('/usuarios/insertar', 'Usuarios::insertar');
+$routes->get('/usuarios/editar/(:any)', 'Usuarios::editar/$1');
 
+
+$routes->get('/rolusuarios', 'RolUsuarios::index');
+$routes->get('/rolusuarios/nuevo', 'RolUsuarios::nuevo');
+$routes->post('/rolusuarios/insertar', 'RolUsuarios::insertar');
+$routes->get('/rolusuarios/editar/(:any)', 'RolUsuarios::editar/$1');
+$routes->post('/rolusuarios/actualizar', 'RolUsuarios::actualizar');
+
+//ADMINISTRADOR
+$routes->get('/productos', 'Productos::index');
+$routes->get('/productos/imagen/(:any)', 'Productos::imagen/$1');
+$routes->get('/productos/editar/(:any)', 'Productos::editar/$1');
+$routes->get('/productos/eliminar/(:any)', 'Productos::eliminar/$1');
+
+$routes->get('/categorias', 'Categorias::index');
+$routes->get('/categorias/nuevo', 'Categorias::nuevo');
+$routes->get('/categorias/eliminados', 'Categorias::eliminados');
+$routes->post('/categorias/insertar', 'Categorias::insertar');
+$routes->get('/categorias/editar/(:any)', 'Categorias::editar/$1');
+$routes->post('/categorias/actualizar', 'Categorias::actualizar');
+
+$routes->get('/unidades', 'Unidades::index');
+$routes->get('/unidades/nuevo', 'Unidades::nuevo');
+$routes->get('/unidades/eliminados', 'Unidades::eliminados');
+$routes->post('/unidades/insertar', 'Unidades::insertar');
+$routes->get('/unidades/editar/(:any)', 'Unidades::editar/$1');
+$routes->post('/unidades/actualizar', 'Unidades::actualizar');
+
+$routes->get('/portadas', 'Portadas::index');
+$routes->get('/portadas/nuevo', 'Portadas::nuevo');
+$routes->post('/portadas/insertar', 'Portadas::insertar');
+$routes->get('/portadas/editar/(:any)', 'Portadas::editar/$1');
+$routes->post('/portadas/activar', 'Portadas::activar');
+$routes->post('/portadas/actualizar', 'Portadas::actualizar');
+
+$routes->get('/post','Post::index');
+$routes->get('/post/nuevo', 'Post::nuevo');
+$routes->post('/post/insertar', 'Post::insertar');
+$routes->get('/post/editar/(:any)', 'Post::editar/$1');
+$routes->post('/post/actualizar', 'Post::actualizar');
+$routes->get('/post/eliminar/(:any)', 'Post::eliminar/$1');
+$routes->get('/post/eliminados', 'Post::eliminados');
+
+$routes->get('/destacados','Destacados::index');
+$routes->post('/destacados/destacar', 'Destacados::destacar');
+
+$routes->get('/anuncios','Anuncios::index');
+$routes->get('/anuncios/nuevo', 'Anuncios::nuevo');
+$routes->post('/anuncios/insertar', 'Anuncios::insertar');
+$routes->get('/anuncios/editar/(:any)', 'Anuncios::editar/$1');
+$routes->post('/anuncios/actualizar', 'Anuncios::actualizar');
+
+$routes->get('/posteos','Posteos::index');
+$routes->get('/posteos/nuevo', 'Posteos::nuevo');
+$routes->post('/posteos/insertar', 'Posteos::insertar');
+$routes->get('/posteos/editar/(:any)', 'Posteos::editar/$1');
+
+$routes->get('/pedidos','Pedidos::index');
+$routes->get('/pedidos/detalle/(:any)', 'Pedidos::detalle/$1');
+$routes->get('/mascomprados','Mascomprados::index');
+$routes->post('/mascomprados/actualiza_estado', 'Mascomprados::actualiza_estado');
 
 
 // TIENDA

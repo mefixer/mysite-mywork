@@ -10,8 +10,8 @@
                 <h2 class="mt-4"><strong><?php echo $titulo; ?></strong></h2>
                 <br>
                 <p>
-                    <a href="<?php echo base_url(); ?>/post/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar un post</a>
-                    <a href="<?php echo base_url(); ?>/post/eliminados" class="btn btn-outline-danger"><i class="fas fa-digital-tachograph"></i> Lista de eliminados</a>
+                    <a href="<?php echo base_url(); ?>post/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar un post</a>
+                    <a href="<?php echo base_url(); ?>post/eliminados" class="btn btn-outline-danger"><i class="fas fa-digital-tachograph"></i> Lista de eliminados</a>
                 </p>
             </div>
             <div class="table-responsive">
@@ -41,11 +41,11 @@
                                 <td><?php echo $dato['descripcion']; ?></td>
                                 <td><img class="w3-center w3-animate-left" src="<?php echo base_url() . '/img/post/' . $dato['img']; ?>" style="width: 20%; height: 20%;"></td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/post/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
+                                    <a href="<?php echo base_url() . 'post/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" data-href="<?php echo base_url() . '/post/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
+                                    <a href="#" data-href="<?php echo base_url() . 'post/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

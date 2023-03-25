@@ -10,7 +10,7 @@
                 <h2 class="mt-4"><strong><?php echo $titulo; ?></strong></h2>
                 <br>
                 <p>
-                    <a href="<?php echo base_url(); ?>/anuncios/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar un anuncio</a>
+                    <a href="<?php echo base_url(); ?>anuncios/nuevo" class="btn btn-outline-dark"><i class="fas fa-plus"></i> Agregar un anuncio</a>
                 </p>
             </div>
             <div class="table-responsive">
@@ -40,11 +40,11 @@
                                 <td><?php echo $dato['descripcion']; ?></td>
                                 <td><img class="w3-center w3-animate-left" src="<?php echo base_url() . '/img/anuncios/' . $dato['img']; ?>" style="width: 20%; height: 20%;"></td>
                                 <td>
-                                    <a href="<?php echo base_url() . '/anuncios/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
+                                    <a href="<?php echo base_url() . 'anuncios/editar/' . $dato['id']; ?>" class="btn btn-sm"><i class="fas fa-edit"></i></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" data-href="<?php echo base_url() . '/anuncios/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
+                                    <a href="#" data-href="<?php echo base_url() . 'anuncios/eliminar/' . $dato['id']; ?>" data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Eliminar registro" class="btn btn-sm"><i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

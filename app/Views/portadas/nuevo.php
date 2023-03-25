@@ -12,7 +12,7 @@
                         </div>
                     <?php } ?>
 
-                    <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>/portadas/insertar" autocomplete="off">
+                    <form method="POST" enctype="multipart/form-data" action="<?php echo base_url(); ?>portadas/insertar" autocomplete="off">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-6 col-sm-3">
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <br>
-                        <a href="<?php echo base_url(); ?>/portadas" class="btn btn-outline-primary btn-sm">
+                        <a href="<?php echo base_url(); ?>portadas" class="btn btn-outline-primary btn-sm">
                             <i class="fas fa-thermometer-quarter"></i> Regresar a la lista de portadas</a>
                         <button type="submit" class="btn btn-outline-success btn-sm"><i class="far fa-save"></i> Guardar la portada</button>
                     </form>
