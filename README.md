@@ -25,6 +25,27 @@ to your `app` folder. The affected files can be copied or merged from
 
 ## Setup
 
+### Opción 1: Desarrollo con Docker 🐳 (Recomendado)
+
+Para un setup rápido y fácil con Docker:
+
+```bash
+# Ejecutar el script de inicio automatizado
+./docker-start.sh
+```
+
+O manualmente:
+```bash
+cp .env.docker .env
+docker compose up -d --build
+```
+
+Accede a tu aplicación en: http://localhost:8080
+
+Ver [DOCKER-README.md](DOCKER-README.md) para más detalles.
+
+### Opción 2: Instalación Tradicional
+
 Copy `env` to `.env` and tailor for your app, specifically the baseURL
 and any database settings.
 

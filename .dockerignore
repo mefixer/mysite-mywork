@@ -1,0 +1,13 @@
+.git
+.gitignore
+README.md
+Dockerfile
+docker-compose.yml
+.dockerignore
+.env.example
+tests
+writable/logs/*
+writable/cache/*
+writable/session/*
+node_modules
+.vscode
