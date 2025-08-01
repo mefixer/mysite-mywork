@@ -13,7 +13,7 @@ class PosteosModel extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['url','activo'];
+    protected $allowedFields = ['titulo', 'descripcion', 'img', 'url', 'activo'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';
